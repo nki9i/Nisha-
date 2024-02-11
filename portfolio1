@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nisha Kini - Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #e4dcdc;
+            
+        }
+
+        header {
+            background-color: #775b5b;
+            color: #e7dada;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #805d5d;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            animation: flyIn 1s ease-out; /* Add flying animation */
+        }
+
+        @keyframes flyIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        h1, h2, h3 {
+            color: #f2d5d9;
+        }
+
+        h2 {
+            border-bottom: 2px solid #6e7175;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #883535;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #161413;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Add sand cursor effect */
+        body {
+            cursor: url('https://image.flaticon.com/icons/svg/684/684810.svg'), auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Nisha Kini</h1>
+        <p>Web Developer</p>
+    </header>
+
+    <section>
+        <img src="https://get-to-know-nkay.s3.amazonaws.com/WhatsApp+Image+2024-01-25+at+20.04.11.jpeg" alt="Nisha Kini"> 
+
+        <h2>Objective</h2>
+        <p>An ambitious 5th-year BTech Integrated student experienced in market and competitive portal-based analysis, seeking valuable industrial experience, equipped with advanced skills in public speaking, leadership, and a solid foundation in utilizing technology-driven solutions and concepts for Computer Science.</p>
+    </section>
+
+    <section>
+        <h2>Educational Qualification</h2>
+        <ul>
+            <li><strong>B.Tech – CS (Pursuing)</strong> - MPSTME, Mumbai, NMIMS University (2021 - 24) - 3.72/4</li>
+            <li><strong>Diploma – CS (3 years)</strong> - MPSTME, Mumbai, NMIMS University (2019 – 21) - 3.64/4</li>
+            <li><strong>Class X</strong> - R N PODAR, Mumbai, CBSE (2018 - 19) - 95%</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Technical Skills</h2>
+        <ul>
+            <li><strong>Operating System Designing:</strong> Windows, Linux, Ubuntu</li>
+            <li><strong>Software Packages:</strong> Oracle, Code Blocks, Cisco Packet Tracer, Anaconda</li>
+            <li><strong>Software Languages:</strong> Html, CSS, Python, Mysql</li>
+            <li><strong>Proficient In:</strong> PHP, Mongo, Node, Angular JS, Javascript, C, C++</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Certifications</h2>
+        <ul>
+            <li><strong>Python for Everybody Specialization (University of Michigan)</strong></li>
+            <li><strong>Programming Fundamentals (Duke University)</strong></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Key Projects</h2>
+        <ul>
+            <li><strong>Image Style Transfer (2024 - Ongoing)</strong>: Python(CNN, Regularisation methods) - Given an image, the algorithm applies a definitive art style to display an output using neural network and machine learning regularisation concepts.</li>
+            <li><strong>Image Caption Generator (2024 - Ongoing)</strong>: Python(natural language processing concepts) - A generator that displays an accurate caption for a given image.</li>
+            <li><strong>Student Dropout Prediction using Census Data (2023)</strong>: Python, Data mining techniques (exploratory data analysis), Modules(Pandas, NumPy) - Various models such as (Linear regression, decision tree, Naïve bayes) classifying the students most likely to dropout based on given factors.</li>
+            <li><strong>Lane Detection using Open-CV (2023)</strong>: Python, NumPy, Pandas - A lane detection system that detects the lane in a provided image.</li>
+            <li><strong>Hands to Serve Food Donation App (2021)</strong>: HTML, CSS, Flutter, Node, EJS - An Instagram for food donation, using a website to create food donation easy by posting about food to be donated and an email claim to receive the donation.</li>
+            <li><strong>Exercise App (2021)</strong>: Mongo, Node, Angular, CSS - A webApp for keeping fitness in check with blogs, recipes, and checklists.</li>
+            <li><strong>School Administration System Tools (2020)</strong>: Tkinter, Python - A basic school administration system for attendance records, finding respective records for the convenience of teachers.</li>
+            <li><strong>Tic Tac Toe Game (2020)</strong>: Java - A game designed using java.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Research Paper</h2>
+        <p><strong>Predictive Modeling of Student Dropout in Higher Education: A Logistic Regression Approach (2023 - Accepted)</strong>:</p>
+        <ul>
+            <li>Investigated dropout prediction in higher education using machine learning methods.</li>
+            <li>Assessed efficacy of decision tree, SVM, Naive Bayes, KNN, and logistic regression.</li>
+            <li>Used a large dataset with academic and demographic variables.</li>
+            <li>Conducted substantial data pre-processing before training and evaluating multiple algorithms.</li>
+            <li>Emphasized the importance of hyperparameter tuning and cross-validation for reliable results.</li>
+            <li>Findings offer valuable insights for improving student retention and overall educational experience.</li>
+            <li>Accepted by the International Journal of Novel Research and Development with a 94% uniqueness score.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>In-Plant Training/Internship</h2>
+        <p><strong>Ashwamedh Infotech (4 months - Jan-April 2023)</strong></p>
+        <ul>
+            <li>Briefly explored new departments and worked under each for a stipulated amount of time.</li>
+            <li>Attended meetings realizing the current market strategies and goals.</li>
+            <li>Used project development tools to create a demo website for the company.</li>
+            <li>Learned and understood tools the company uses such as Laravel, PHP, etc. to supplement into projects as per need.</li>
+            <li>Handled bug fixes and cybersecurity needs.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Achievements</h2>
+        <ul>
+            <li>Silver Medal in French Olympiad.</li>
+            <li>Participated in workshops such as Microsoft workshop, Alumni Talk, Infrastructure as code (cloud-based) workshop facilitated by College.</li>
+        </ul>
+    </section>
+
+    <section>
+       
+    </section>
+    <footer class="fixed-bottom"> 
+        <p>Contact: kini.nisha24@gmail.com | Number: 9987621270 | Address: Andheri west 400056</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
