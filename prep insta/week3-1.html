@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #profile-header {
+            background-color: #1877f2; /* Facebook blue color */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        #cover-photo {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+        }
+
+        #profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #user-info {
+            margin-top: 20px;
+        }
+
+        h1 {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+
+        p {
+            margin: 5px 0;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="profile-header">
+        <img id="cover-photo" src="https://source.unsplash.com/1600x900/?nature,water" alt="Cover Photo">
+        <img id="profile-picture" src="https://source.unsplash.com/150x150/?portrait" alt="profile">
+        <div id="user-info">
+            <h1>Nisha Kini</h1>
+            <p>Mumbai</p>
+            <p>Passionate engineer</p>
+        </div>
+    </div>
+
+</body>
+</html>

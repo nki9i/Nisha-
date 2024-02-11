@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        #gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 20px;
+            justify-content: flex-start;
+            scroll-snap-type: x mandatory;
+            white-space: nowrap;
+        }
+    
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            transition: transform 0.3s ease-in-out;
+            height: 200px; /* Set a fixed height for all gallery items */
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        #upload-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #353033; 
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #gallery:hover .gallery-item {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <input type="file" id="file-input" style="display: none">
+    <button id="upload-btn">Upload Image</button>
+
+    <div id="gallery">
+        <div class="gallery-item">
+            <img src="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg" alt="Image 1">
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.pexels.com/photos/296282/pexels-photo-296282.jpeg?cs=srgb&dl=pexels-lukas-296282.jpg&fm=jpg" alt="Image 2">
+        </div>
+        <div class="gallery-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXZckEMLJgfntLbCOcOeyvd-AS-r9czBJUPw&usqp=CAU" alt="Image 3">
+        </div>
+        <div class="gallery-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW2KGCwNv0eFnSvnqNmFLu-87m-S-ZiE3P5w&usqp=CAU" alt="Image 1">
+        </div>
+        <div class="gallery-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy_axSqyyq11x5JqZ_rKbzYcbXLORVp-1nAw&usqp=CAU" alt="Image 1">
+        </div>
+        <div class="gallery-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUzUDaFSvSJo29J51TV0yAO3jmLbGYp_cT3Q&usqp=CAU" alt="Image 1">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('upload-btn').addEventListener('click', function() {
+            document.getElementById('file-input').click();
+        });
+
+        document.getElementById('file-input').addEventListener('change', function() {
+            const fileInput = this;
+            const gallery = document.getElementById('gallery');
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const imgSrc = e.target.result;
+
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    const img = document.createElement('img');
+                    img.src = imgSrc;
+                    img.alt = 'Uploaded Image';
+                    galleryItem.appendChild(img);
+                    gallery.appendChild(galleryItem);
+                };
+
+                reader.readAsDataURL(fileInput.files[0]);
+                fileInput.value = ''; // Clear the file input
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing Page</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #232f3e;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        #product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        #filters {
+            background-color: #ffffff;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        select, input {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #232f3e;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-primary">
+        <h1 class="text-white">Product Listing Page</h1>
+    </header>
+
+    <div class="container mt-3">
+        <div id="filters">
+            <label for="category">Category:</label>
+            <select id="category" class="form-control">
+                <option value="all">All</option>
+                <option value="electronics">Electronics</option>
+                <option value="clothing">Clothing</option>
+                <!-- Add more categories as needed -->
+            </select>
+
+            <label for="price-range" class="mt-2">Price Range:</label>
+            <input type="range" id="price-range" min="0" max="100" value="50" class="form-control">
+
+            <label for="search" class="mt-2">Search:</label>
+            <input type="text" id="search" placeholder="Search products" class="form-control">
+        </div>
+
+        <div id="product-list" class="row">
+            <!-- Low Price Range Products - Clothing -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://source.unsplash.com/250x150/?low-price,clothing" alt="Product Image" class="img-fluid">
+                    <h2>Low-Price Clothing</h2>
+                    <p class="price">$19.99</p>
+                    <a href="#" class="btn btn-primary" onclick="addToCart('Low-Price Clothing')">Add to Cart</a>
+                </div>
+            </div>
+
+            <!-- Medium Price Range Products - Clothing -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://source.unsplash.com/250x150/?medium-price,clothing" alt="Product Image" class="img-fluid">
+                    <h2>Medium-Price Clothing</h2>
+                    <p class="price">$49.99</p>
+                    <a href="#" class="btn btn-primary" onclick="addToCart('Medium-Price Clothing')">Add to Cart</a>
+                </div>
+            </div>
+
+            <!-- High Price Range Products - Clothing -->
+            <div class="col-md-4">
+                <div class="product-card">
+                    <img src="https://source.unsplash.com/250x150/?high-price,clothing" alt="Product Image" class="img-fluid">
+                    <h2>High-Price Clothing</h2>
+                    <p class="price">$99.99</p>
+                    <a href="#" class="btn btn-primary" onclick="addToCart('High-Price Clothing')">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white mt-3">
+        <p>&copy; 2024 Your E-Commerce Website</p>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function addToCart(productName) {
+            // This is a basic demonstration. You would typically handle cart functionality on the server.
+            alert(`Added ${productName} to the cart! Redirecting to the cart page.`);
+            // Redirect to the cart page (replace '#' with the actual cart page URL)
+            window.location.href = '#';
+        }
+    </script>
+
+</body>
+</html>
