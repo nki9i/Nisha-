@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add your custom CSS styles here */
+        .book-cover {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container mt-4">
+        <!-- Adding Books using API -->
+        <form id="addBookForm">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title" required>
+            </div>
+            <div class="form-group">
+                <label for="author">Author:</label>
+                <input type="text" class="form-control" id="author" required>
+            </div>
+            <div class="form-group">
+                <label for="pages">Pages:</label>
+                <input type="number" class="form-control" id="pages" required>
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre:</label>
+                <input type="text" class="form-control" id="genre" required>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="addBook()">Add Book</button>
+        </form>
+
+        <!-- Search Books using API -->
+        <div class="mt-4">
+            <label for="search">Search by Title:</label>
+            <input type="text" class="form-control" id="search" oninput="searchBooks()">
+        </div>
+
+        <!-- Display Books -->
+        <div class="mt-4" id="bookList">
+            <!-- Book details will be dynamically added here -->
+        </div>
+
+        <!-- Message for No Results -->
+        <div class="alert alert-info mt-4" id="noResultsMessage" style="display: none;">
+            No books found.
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function addBook() {
+            // Implement adding book functionality
+            const title = document.getElementById("title").value;
+            const author = document.getElementById("author").value;
+            const pages = document.getElementById("pages").value;
+            const genre = document.getElementById("genre").value;
+
+            // Replace this with an actual book cover URL from the Google Books API
+            const coverURL = 'https://via.placeholder.com/150';
+
+            const bookElement = document.createElement("div");
+            bookElement.className = "card mt-2";
+            bookElement.innerHTML = `
+                <img src="${coverURL}" class="card-img-top book-cover" alt="${title} cover">
+                <div class="card-body">
+                    <h5 class="card-title">${title}</h5>
+                    <p class="card-text">Author: ${author}</p>
+                    <p class="card-text">Pages: ${pages}</p>
+                    <p class="card-text">Genre: ${genre}</p>
+                </div>
+            `;
+
+            document.getElementById("bookList").appendChild(bookElement);
+        }
+
+        function searchBooks() {
+            const searchInput = document.getElementById("search").value;
+
+            // Clear previous results
+            document.getElementById("bookList").innerHTML = "";
+            document.getElementById("noResultsMessage").style.display = "none";
+
+            // Make API request to Google Books API
+            fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(searchInput)}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.items) {
+                        data.items.forEach(book => {
+                            const bookInfo = book.volumeInfo;
+                            const title = bookInfo.title;
+                            const author = bookInfo.authors ? bookInfo.authors.join(', ') : 'Unknown Author';
+                            const pages = bookInfo.pageCount ? `${bookInfo.pageCount} pages` : 'N/A';
+                            const genre = bookInfo.categories ? bookInfo.categories.join(', ') : 'N/A';
+                            const coverURL = bookInfo.imageLinks ? bookInfo.imageLinks.thumbnail : 'https://via.placeholder.com/150';
+
+                            const bookElement = document.createElement("div");
+                            bookElement.className = "card mt-2";
+                            bookElement.innerHTML = `
+                                <img src="${coverURL}" class="card-img-top book-cover" alt="${title} cover">
+                                <div class="card-body">
+                                    <h5 class="card-title">${title}</h5>
+                                    <p class="card-text">Author: ${author}</p>
+                                    <p class="card-text">Pages: ${pages}</p>
+                                    <p class="card-text">Genre: ${genre}</p>
+                                </div>
+                            `;
+
+                            document.getElementById("bookList").appendChild(bookElement);
+                        });
+                    } else {
+                        // Display message for no results
+                        document.getElementById("noResultsMessage").style.display = "block";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
+    </script>
+
+</body>
+</html>
