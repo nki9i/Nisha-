@@ -1,0 +1,101 @@
+// Import necessary modules
+import React from 'react';
+import './App.css';
+
+// Header Component
+function Header() {
+  return (
+    <header>
+      <h1>Travel Explorer</h1>
+      <nav>
+        <ul>
+          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+  );
+}
+
+// Hero Section Component
+function HeroSection() {
+  return (
+    <section id="hero">
+      <div className="hero-content">
+        <h2>Discover Your Next Adventure</h2>
+        <p>Explore breathtaking destinations around the world and create unforgettable memories.</p>
+      </div>
+    </section>
+  );
+}
+
+// Destinations Section Component
+function DestinationsSection() {
+  return (
+    <section id="destinations">
+      <h2>Popular Destinations</h2>
+      <div className="destination">
+        <img src="destination1.jpg" alt="Destination 1" />
+        <h3>Destination 1</h3>
+        <p>Description of Destination 1.</p>
+      </div>
+      <div className="destination">
+        <img src="destination2.jpg" alt="Destination 2" />
+        <h3>Destination 2</h3>
+        <p>Description of Destination 2.</p>
+      </div>
+      <div className="destination">
+        <img src="destination3.jpg" alt="Destination 3" />
+        <h3>Destination 3</h3>
+        <p>Description of Destination 3.</p>
+      </div>
+    </section>
+  );
+}
+
+// Contact Form Component
+function ContactForm() {
+  return (
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <label htmlFor="name">Name:</label>
+        <input type="text" id="name" name="name" required /><br />
+        <label htmlFor="email">Email:</label>
+        <input type="email" id="email" name="email" required /><br />
+        <label htmlFor="message">Message:</label><br />
+        <textarea id="message" name="message" required></textarea><br />
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  );
+}
+
+// Footer Component
+function Footer() {
+  return (
+    <footer>
+      <p>Travel Explorer &copy; 2024</p>
+      <div className="social-media">
+        <a href="#"><i className="fab fa-facebook-f"></i></a>
+        <a href="#"><i className="fab fa-twitter"></i></a>
+        <a href="#"><i className="fab fa-instagram"></i></a>
+      </div>
+    </footer>
+  );
+}
+
+// App Component
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <HeroSection />
+      <DestinationsSection />
+      <ContactForm />
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
