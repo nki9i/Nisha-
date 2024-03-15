@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indian Cities</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  .city-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .city-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  .city-info {
+    margin-top: 10px;
+  }
+  .city-info p {
+    margin: 5px 0;
+    color: #666;
+  }
+</style>
+</head>
+<body>
+<div id="cities-container"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Fetching JSON data
+  fetch(' https://api.npoint.io/7bbd3a59c401f616bb89')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      displayCities(data);
+    })
+    .catch(error => {
+      console.error('There was a problem fetching the data:', error);
+    });
+
+  // Displaying cities
+  function displayCities(citiesData) {
+    const citiesContainer = document.getElementById('cities-container');
+
+    // Iterate over each city in the data
+    citiesData.forEach(city => {
+      const cityCard = document.createElement('div');
+      cityCard.classList.add('city-card');
+
+      const cityNameElement = document.createElement('div');
+      cityNameElement.classList.add('city-name');
+      cityNameElement.textContent = city.name;
+
+      const cityInfo = document.createElement('div');
+      cityInfo.classList.add('city-info');
+
+      const population = document.createElement('p');
+      population.textContent = `Population: ${city.population || 'N/A'}`;
+
+      const state = document.createElement('p');
+      state.textContent = `State: ${city.state || 'N/A'}`;
+
+      const country = document.createElement('p');
+      country.textContent = `Country: ${city.country || 'N/A'}`;
+
+      cityInfo.appendChild(population);
+      cityInfo.appendChild(state);
+      cityInfo.appendChild(country);
+
+      cityCard.appendChild(cityNameElement);
+      cityCard.appendChild(cityInfo);
+
+      citiesContainer.appendChild(cityCard);
+    });
+  }
+});
+</script>
+</body>
+</html>
